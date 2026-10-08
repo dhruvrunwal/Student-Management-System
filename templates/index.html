@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Management System</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Student Management System</h1>
+
+        <p class="subtitle">
+            Add, search, update and delete student records
+        </p>
+
+
+        <!-- STUDENT FORM -->
+
+        <div class="form-box">
+
+            <h2 id="formTitle">Add Student</h2>
+
+            <form id="studentForm">
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Student Name"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="roll_no"
+                    placeholder="Roll Number"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="class_name"
+                    placeholder="Class"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="marks"
+                    placeholder="Marks"
+                    min="0"
+                    max="100"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="contact"
+                    placeholder="Contact Number"
+                    required
+                >
+
+                <button type="submit" id="submitButton">
+                    Add Student
+                </button>
+
+                <button
+                    type="button"
+                    id="cancelButton"
+                    class="cancel-btn"
+                    onclick="cancelEdit()"
+                >
+                    Cancel
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search by name or roll number"
+                onkeyup="searchStudents()"
+            >
+
+            <button onclick="loadStudents()">
+                Show All
+            </button>
+
+        </div>
+
+
+        <!-- STUDENT TABLE -->
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Roll No</th>
+                        <th>Class</th>
+                        <th>Marks</th>
+                        <th>Contact</th>
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="studentTableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
